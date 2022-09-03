@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from "../constants";
+import { ADD_TO_CART, REMOVE_FROM_CART } from "../constants";
 
 const initialState = {
     cardData: []
@@ -10,6 +10,13 @@ export const cardItems = (state = initialState, action) => {
             return {
                 ...state,
                 cardData: [...state.cardData, action.payload]
+            }
+            break;
+        case REMOVE_FROM_CART:
+            state.cardData.pop()
+            return{
+                ...state,
+                cardData: [...state.cardData]
             }
             break;
         default:

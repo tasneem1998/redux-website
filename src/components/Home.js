@@ -3,11 +3,7 @@ import phoneImg from "../phone.jpeg"
 import { ITEM } from "../services/constants";
 
 const Home = (props) => {
-    const { addToCartHandler } = props;
-
-    const handleClick = () => {
-        addToCartHandler(ITEM)
-    }
+    const { addToCartHandler, removeFromCartHandler } = props;
     
     return (
         <>
@@ -17,7 +13,10 @@ const Home = (props) => {
                 <div>
                     <span>{ITEM.name} - Rs. {ITEM.price}/-</span>
                 </div>
-                <div><button onClick={handleClick}>Add to cart</button></div>
+                <div>
+                    <button onClick={()=>addToCartHandler(ITEM)}>Add to cart</button>
+                    <button onClick={()=>removeFromCartHandler(ITEM)}>Remove from cart</button>
+                </div>
             </div>
         </>
 
